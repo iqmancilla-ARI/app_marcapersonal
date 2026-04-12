@@ -356,14 +356,14 @@ with tab1:
         st.markdown("<br>**Operaciones Industriales:**",
                     unsafe_allow_html=True)
         for sk, pct in [("OEE & KPIs de Producción", 95), ("Lean Manufacturing & TPM", 95),
-                        ("Gestión de Proyectos MEP", 90), ("BIM / ArchiCAD", 80), ("EVM / S-Curve", 85)]:
+                        ("Gestión de Proyectos MEP", 95), ("BIM / ArchiCAD", 80), ("EVM / S-Curve", 95)]:
             st.markdown(
                 f'<div class="sk-label">{sk}<span>{pct}%</span></div>', unsafe_allow_html=True)
             st.progress(pct/100)
         st.markdown("<br>**Idiomas:**", unsafe_allow_html=True)
         st.markdown("""
         <span class="tag tag-blue">🇲🇽 Español — Nativo</span>
-        <span class="tag tag-blue">🇺🇸 Inglés — C1 Advanced</span>
+        <span class="tag tag-blue">🇺🇸 Inglés — B2 Advanced</span>
         <span class="tag tag-green">Visa US vigente</span>
         <span class="tag tag-green">Relocalización inmediata</span>
         """, unsafe_allow_html=True)
@@ -446,11 +446,11 @@ with tab3:
         st.markdown('<span class="sec-tag">// formación</span>',
                     unsafe_allow_html=True)
         st.markdown(
-            '<div class="sec-title" style="font-size:1.6rem;">Educación &<br><span>Certificaciones</span></div>', unsafe_allow_html=True)
+            '<div class="sec-title" style="font-size:1.6rem;">Educación &<br><span>Diplomados</span></div>', unsafe_allow_html=True)
         st.markdown("""
         <div class="proj-card" style="border-left-color:#2B7FD4;">
             <div class="proj-num">Universidad de Guadalajara — CUCEI</div>
-            <div class="proj-title">Ingeniería Química — Titulado</div>
+            <div class="proj-title">Ingeniería Química</div>
         </div>
         <div class="proj-card">
             <div class="proj-num">TripleTen (Practicum) · 2024 — Actualidad</div>
@@ -459,7 +459,7 @@ with tab3:
             <span class="tag tag-green">En curso</span>
         </div>
         """, unsafe_allow_html=True)
-        st.markdown("**Certificaciones:**")
+        st.markdown("**Diplomados:**")
         for c in ["📋 Project Management Professional (PMI/PMBOK)", "🏭 Lean Manufacturing & TPM",
                   "🍽️ HACCP — Inocuidad alimentaria", "✅ ISO 9001:2015", "🏗️ BIM / ISO 19650", "🔥 NFPA 13, 14, 2001"]:
             st.markdown(
@@ -478,14 +478,14 @@ with tab4:
     with ci:
         st.markdown("""
         <div class="contact-card">
-            <h3>J. Daniel Mancilla M.</h3>
+            <h3>José Daniel Mancilla Malvaez</h3>
             <p>Abierto a roles en<br>
-            <strong>analítica industrial</strong>, <strong>Data Science</strong> y <strong>ConTech</strong>.</p>
+            <strong>analítica industrial</strong>, <strong>Data Science</strong> & <strong>ConTech</strong>.</p>
             <br>
             <p>📍 Zapopan, Jalisco — México<br>
             🔄 Relocalización nacional inmediata<br>
             🇺🇸 Visa US vigente<br>
-            🌐 Inglés C1 Advanced</p>
+            🌐 Inglés B2 Advanced</p>
         </div>
         """, unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
