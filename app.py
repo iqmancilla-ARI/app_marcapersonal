@@ -265,11 +265,11 @@ with col_h:
     st.markdown("""
     <div class="hero-badge">// Disponible para nuevas oportunidades</div>
     <div class="hero-name">JDMM | <span>Daniel Mancilla</span></div>
-    <div class="hero-role">Data Scientist &amp; Operations Specialist</div>
+    <div class="hero-role">Operations|Data Scientist|MEP Construction|Lean &amp; Process Optimization</div>
     <p class="hero-desc">
-        <strong>Ingeniero Químico con +15 años en operaciones industriales</strong> —
-        manufactura, construcción MEP, agroindustria — en transición estratégica hacia
-        Data Science aplicado. Convierto datos operativos en decisiones de negocio de alto impacto.
+        <strong>Líder en Operaciones con +15 años en manufactura &amp; construcción MEP</strong> —
+        Transformo operaciones en resultados mediante LEAN, AGILE, analítica y digitalización.
+        Conecto estrategia, ciencia de datos y ejecución para maximizar rentabilidad y lograr crecimiento.
     </p>
     """, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
