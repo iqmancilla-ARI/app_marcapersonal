@@ -264,7 +264,7 @@ col_h, _ = st.columns([3, 1])
 with col_h:
     st.markdown("""
     <div class="hero-badge">// Disponible para nuevas oportunidades</div>
-    <div class="hero-name">J. Daniel<br><span>Mancilla</span></div>
+    <div class="hero-name">JDMM<br><span>Daniel Mancilla</span></div>
     <div class="hero-role">Data Scientist &amp; Operations Specialist</div>
     <p class="hero-desc">
         <strong>Ingeniero Químico con +15 años en operaciones industriales</strong> —
