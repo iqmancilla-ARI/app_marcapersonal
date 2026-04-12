@@ -265,7 +265,7 @@ with col_h:
     st.markdown("""
     <div class="hero-badge">// Disponible para nuevas oportunidades</div>
     <div class="hero-name">JDMM | <span>Daniel Mancilla</span></div>
-    <div class="hero-role">Operations|Data Scientist|MEP Construction<br>|Lean &amp; Process Optimization</div>
+    <div class="hero-role">Operations|Data Scientist|MEP Construction|<br>Lean &amp; Process Optimization</div>
     <p class="hero-desc">
         <strong>Líder en Operaciones con +15 años en manufactura &amp; construcción MEP</strong> —
         Transformo operaciones en resultados mediante LEAN, AGILE, analítica y digitalización.
@@ -353,13 +353,14 @@ with tab1:
             st.markdown(
                 f'<div class="sk-label">{sk}<span>{pct}%</span></div>', unsafe_allow_html=True)
             st.progress(pct/100)
-        st.markdown("<br>**Operaciones Industriales:**")
+        st.markdown("<br>**Operaciones Industriales:**",
+                    unsafe_allow_html=True)
         for sk, pct in [("OEE & KPIs de Producción", 95), ("Lean Manufacturing & TPM", 95),
                         ("Gestión de Proyectos MEP", 90), ("BIM / ArchiCAD", 80), ("EVM / S-Curve", 85)]:
             st.markdown(
                 f'<div class="sk-label">{sk}<span>{pct}%</span></div>', unsafe_allow_html=True)
             st.progress(pct/100)
-        st.markdown("<br>**Idiomas:**")
+        st.markdown("<br>**Idiomas:**", unsafe_allow_html=True)
         st.markdown("""
         <span class="tag tag-blue">🇲🇽 Español — Nativo</span>
         <span class="tag tag-blue">🇺🇸 Inglés — C1 Advanced</span>
