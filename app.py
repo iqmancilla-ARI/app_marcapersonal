@@ -19,7 +19,7 @@ st.markdown("""
 
 html, body, [class*="css"], .stApp {
     font-family: 'IBM Plex Sans', sans-serif !important;
-    background-color: #F4F7FB !important;
+    background-color: #F6F4EF !important;
     color: #12233A !important;
 }
 #MainMenu, footer, header { visibility: hidden; }
@@ -265,7 +265,7 @@ with col_h:
     st.markdown("""
     <div class="hero-badge">// Disponible para nuevas oportunidades</div>
     <div class="hero-name">JDMM | <span>Daniel Mancilla</span></div>
-    <div class="hero-role">Operations|Data Scientist|MEP Construction|Lean &amp; Process Optimization</div>
+    <div class="hero-role">Operations|Data Scientist|MEP Construction<br>|Lean &amp; Process Optimization</div>
     <p class="hero-desc">
         <strong>Líder en Operaciones con +15 años en manufactura &amp; construcción MEP</strong> —
         Transformo operaciones en resultados mediante LEAN, AGILE, analítica y digitalización.
