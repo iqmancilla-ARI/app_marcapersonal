@@ -7,7 +7,7 @@ import streamlit as st
 
 # ── PAGE CONFIG ──────────────────────────────────────────────
 st.set_page_config(
-    page_title="J. Daniel Mancilla — Data Scientist",
+    page_title="Daniel Mancilla",
     page_icon="⚙️",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -19,25 +19,43 @@ st.markdown("""
     /* Import fonts */
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-    /* Global */
-    html, body, [class*="css"] {
-        font-family: 'DM Sans', sans-serif;
-    }
+  /* Hero name - Drafted style */
+.hero-name {
+    font-family: 'JetBrains Mono', monospace; /* Monospace feels like typed specs */
+    font-size: 3.8rem;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    border-left: 5px solid #00D7FF; /* Cyan "border" line */
+    padding-left: 15px;
+}
+
+.section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.2rem;
+    color: #00D7FF; /* Blueprint Cyan */
+    border-bottom: 1px dashed #00D7FF; /* Dashed technical line */
+}
 
     /* Hide Streamlit default elements */
     #MainMenu, footer, header { visibility: hidden; }
     .block-container { padding-top: 2rem; padding-bottom: 2rem; max-width: 1100px; }
 
-    /* Hero name */
-    .hero-name {
-        font-family: 'DM Serif Display', serif;
-        font-size: 3.8rem;
-        font-weight: 400;
-        color: #0D1F2D;
-        line-height: 1.05;
-        margin-bottom: 0.2rem;
-    }
-    .hero-name span { color: #1B6CA8; }
+   /* Hero name - Drafted style */
+.hero-name {
+    font-family: 'JetBrains Mono', monospace; /* Monospace feels like typed specs */
+    font-size: 3.8rem;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    border-left: 5px solid #00D7FF; /* Cyan "border" line */
+    padding-left: 15px;
+}
+
+.section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.2rem;
+    color: #00D7FF; /* Blueprint Cyan */
+    border-bottom: 1px dashed #00D7FF; /* Dashed technical line */
+}
 
     /* Section headers */
     .section-tag {
@@ -65,58 +83,33 @@ st.markdown("""
         border-radius: 2px;
     }
 
-    /* Stat cards */
     .stat-card {
-        background: linear-gradient(135deg, #0D1F2D 0%, #1A3448 100%);
-        border-radius: 10px;
-        padding: 1.4rem;
-        text-align: center;
-        border: 1px solid rgba(42,190,188,0.2);
-    }
-    .stat-number {
-        font-family: 'DM Serif Display', serif;
-        font-size: 2.8rem;
-        color: #2ABEBC;
-        display: block;
-        line-height: 1;
-        margin-bottom: 0.4rem;
-    }
-    .stat-label {
-        font-size: 0.78rem;
-        color: #8BA3B8;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-    }
+    background: transparent;
+    border: 2px solid #00D7FF;
+    border-radius: 4px;
+    padding: 1.4rem;
+}
 
-    /* Project cards */
-    .project-card {
-        background: #F8FAFE;
-        border: 1px solid #E0E8F0;
-        border-radius: 10px;
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        border-left: 4px solid #1B6CA8;
-        transition: all 0.2s;
-    }
-    .project-num {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.7rem;
-        color: #2ABEBC;
-        letter-spacing: 0.15em;
-        margin-bottom: 0.5rem;
-    }
-    .project-title {
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: #0D1F2D;
-        margin-bottom: 0.5rem;
-    }
-    .project-desc {
-        font-size: 0.88rem;
-        color: #555;
-        line-height: 1.7;
-        margin-bottom: 0.8rem;
-    }
+.stat-number {
+    font-family: 'JetBrains Mono', monospace;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+   /* Project cards as technical details */
+.project-card {
+    background: rgba(26, 95, 122, 0.3); /* Translucent navy */
+    border: 1px solid #00D7FF; /* Cyan outline */
+    border-radius: 0px; /* Sharp corners look more like technical docs */
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.project-title {
+    color: #00D7FF !important;
+    text-transform: uppercase;
+}
 
     /* Tag pills */
     .tag-pill {
@@ -254,9 +247,11 @@ with col_hero:
 
     col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 2])
     with col_btn1:
-        st.link_button("💼 LinkedIn", "https://linkedin.com/in/pmomancilla", use_container_width=True)
+        st.link_button(
+            "💼 LinkedIn", "https://linkedin.com/in/pmomancilla", use_container_width=True)
     with col_btn2:
-        st.link_button("💻 GitHub", "https://github.com/iqmancilla-ARI", use_container_width=True)
+        st.link_button(
+            "💻 GitHub", "https://github.com/iqmancilla-ARI", use_container_width=True)
 
 st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
 
@@ -304,8 +299,10 @@ with tab1:
     col_bio, col_skills = st.columns([1.1, 1])
 
     with col_bio:
-        st.markdown('<p class="section-tag">// 01. sobre mí</p>', unsafe_allow_html=True)
-        st.markdown('<h2 class="section-title">El profesional<br>detrás del perfil</h2>', unsafe_allow_html=True)
+        st.markdown('<p class="section-tag">// 01. sobre mí</p>',
+                    unsafe_allow_html=True)
+        st.markdown(
+            '<h2 class="section-title">El profesional<br>detrás del perfil</h2>', unsafe_allow_html=True)
 
         st.markdown("""
         <p style="color:#444; line-height:1.85; margin-bottom:1rem;">
@@ -328,8 +325,10 @@ with tab1:
 
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("**Especialidades:**")
-        tags_ops = ["OEE", "TPM", "Lean Manufacturing", "Kaizen", "HACCP", "ISO 9001", "BIM/ISO 19650", "EVM/S-Curve"]
-        pills_html = " ".join([f'<span class="tag-pill-teal">{t}</span>' for t in tags_ops])
+        tags_ops = ["OEE", "TPM", "Lean Manufacturing", "Kaizen",
+                    "HACCP", "ISO 9001", "BIM/ISO 19650", "EVM/S-Curve"]
+        pills_html = " ".join(
+            [f'<span class="tag-pill-teal">{t}</span>' for t in tags_ops])
         st.markdown(pills_html, unsafe_allow_html=True)
 
     with col_skills:
@@ -355,12 +354,14 @@ with tab1:
 
         st.markdown("*Data Science:*")
         for skill, pct in skills_code.items():
-            st.markdown(f'<div class="skill-label">{skill}</div>', unsafe_allow_html=True)
+            st.markdown(
+                f'<div class="skill-label">{skill}</div>', unsafe_allow_html=True)
             st.progress(pct / 100)
 
         st.markdown("<br>*Operaciones Industriales:*", unsafe_allow_html=True)
         for skill, pct in skills_ops.items():
-            st.markdown(f'<div class="skill-label">{skill}</div>', unsafe_allow_html=True)
+            st.markdown(
+                f'<div class="skill-label">{skill}</div>', unsafe_allow_html=True)
             st.progress(pct / 100)
 
         st.markdown("<br>**Idiomas:**")
@@ -376,8 +377,10 @@ with tab1:
 # ────────────────────────────────────────────────────────────
 with tab2:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p class="section-tag">// 02. proyectos</p>', unsafe_allow_html=True)
-    st.markdown('<h2 class="section-title">Data Science en acción</h2>', unsafe_allow_html=True)
+    st.markdown('<p class="section-tag">// 02. proyectos</p>',
+                unsafe_allow_html=True)
+    st.markdown('<h2 class="section-title">Data Science en acción</h2>',
+                unsafe_allow_html=True)
 
     projects = [
         {
@@ -419,7 +422,8 @@ with tab2:
     for i, proj in enumerate(projects):
         target_col = col_left if i % 2 == 0 else col_right
         with target_col:
-            tags_html = " ".join([f'<span class="tag-pill">{t}</span>' for t in proj["tags"]])
+            tags_html = " ".join(
+                [f'<span class="tag-pill">{t}</span>' for t in proj["tags"]])
             st.markdown(f"""
             <div class="project-card">
                 <div class="project-num">{proj['num']}</div>
@@ -429,7 +433,8 @@ with tab2:
                 <div style="font-size:0.82rem; color:#0F6E56; font-weight:500; margin-bottom:0.6rem;">{proj['resultado']}</div>
             </div>
             """, unsafe_allow_html=True)
-            st.link_button("→ Ver en GitHub", proj["link"], use_container_width=False)
+            st.link_button("→ Ver en GitHub",
+                           proj["link"], use_container_width=False)
             st.markdown("<br>", unsafe_allow_html=True)
 
 
@@ -438,8 +443,10 @@ with tab2:
 # ────────────────────────────────────────────────────────────
 with tab3:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p class="section-tag">// 03. experiencia</p>', unsafe_allow_html=True)
-    st.markdown('<h2 class="section-title">Trayectoria profesional</h2>', unsafe_allow_html=True)
+    st.markdown('<p class="section-tag">// 03. experiencia</p>',
+                unsafe_allow_html=True)
+    st.markdown('<h2 class="section-title">Trayectoria profesional</h2>',
+                unsafe_allow_html=True)
 
     experience = [
         {
@@ -480,7 +487,8 @@ with tab3:
 
     with col_cert:
         st.markdown("**Formación académica**")
-        st.info("🎓 **Ingeniería Química**\nUniversidad de Guadalajara — CUCEI\nTitulado")
+        st.info(
+            "🎓 **Ingeniería Química**\nUniversidad de Guadalajara — CUCEI\nTitulado")
         st.info("📊 **Data Science Bootcamp** (en curso)\nTripleTen (Practicum) — 2024 a la fecha\nPython · SQL · ML · Streamlit · APIs")
 
         st.markdown("<br>**Certificaciones**", unsafe_allow_html=True)
@@ -508,8 +516,10 @@ with tab3:
 # ────────────────────────────────────────────────────────────
 with tab4:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p class="section-tag">// 04. contacto</p>', unsafe_allow_html=True)
-    st.markdown('<h2 class="section-title">¿Hablamos?</h2>', unsafe_allow_html=True)
+    st.markdown('<p class="section-tag">// 04. contacto</p>',
+                unsafe_allow_html=True)
+    st.markdown('<h2 class="section-title">¿Hablamos?</h2>',
+                unsafe_allow_html=True)
 
     col_contact, col_form = st.columns([1, 1.2])
 
@@ -530,9 +540,12 @@ with tab4:
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        st.link_button("✉️  iq.mancilla@gmail.com", "mailto:iq.mancilla@gmail.com", use_container_width=True)
-        st.link_button("💼  linkedin.com/in/pmomancilla", "https://linkedin.com/in/pmomancilla", use_container_width=True)
-        st.link_button("💻  github.com/iqmancilla-ARI", "https://github.com/iqmancilla-ARI", use_container_width=True)
+        st.link_button("✉️  iq.mancilla@gmail.com",
+                       "mailto:iq.mancilla@gmail.com", use_container_width=True)
+        st.link_button("💼  linkedin.com/in/pmomancilla",
+                       "https://linkedin.com/in/pmomancilla", use_container_width=True)
+        st.link_button("💻  github.com/iqmancilla-ARI",
+                       "https://github.com/iqmancilla-ARI", use_container_width=True)
 
     with col_form:
         st.markdown("**Envíame un mensaje directo:**")
@@ -548,7 +561,8 @@ with tab4:
 
         if st.button("Enviar mensaje →", use_container_width=True, type="primary"):
             if nombre and email and mensaje:
-                st.success(f"✅ Gracias **{nombre}**. Te respondo a la brevedad a **{email}**.")
+                st.success(
+                    f"✅ Gracias **{nombre}**. Te respondo a la brevedad a **{email}**.")
                 st.balloons()
             else:
                 st.warning("Por favor completa todos los campos.")
