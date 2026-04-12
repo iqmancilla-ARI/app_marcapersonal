@@ -1,218 +1,258 @@
 """
 Portfolio Personal — J. Daniel Mancilla Malvaez
 Data Scientist | Operations Analytics Specialist
+Blueprint palette + IBM Plex Sans
 """
 
 import streamlit as st
 
-# ── PAGE CONFIG ──────────────────────────────────────────────
 st.set_page_config(
-    page_title="Daniel Mancilla",
+    page_title="J. Daniel Mancilla — Data Scientist",
     page_icon="⚙️",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
 
-# ── CUSTOM CSS ───────────────────────────────────────────────
 st.markdown("""
 <style>
-    /* Import fonts */
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-  /* Hero name - Drafted style */
+html, body, [class*="css"], .stApp {
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    background-color: #F4F7FB !important;
+    color: #12233A !important;
+}
+#MainMenu, footer, header { visibility: hidden; }
+.block-container {
+    padding-top: 2.5rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 1080px !important;
+}
+
+.hero-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1458A8;
+    background: #E8F1FB;
+    border: 1.5px solid #2B7FD4;
+    border-radius: 3px;
+    padding: 5px 14px;
+    margin-bottom: 1.2rem;
+}
 .hero-name {
-    font-family: 'JetBrains Mono', monospace; /* Monospace feels like typed specs */
-    font-size: 3.8rem;
-    color: #FFFFFF;
-    letter-spacing: -1px;
-    border-left: 5px solid #00D7FF; /* Cyan "border" line */
-    padding-left: 15px;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    color: #12233A;
+    line-height: 1.05;
+    margin-bottom: 0.3rem;
+}
+.hero-name span { color: #1458A8; }
+.hero-role {
+    font-weight: 300;
+    font-size: 1.3rem;
+    color: #2B7FD4;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+}
+.hero-desc {
+    font-size: 0.98rem;
+    color: #4B6A8A;
+    line-height: 1.8;
+    max-width: 560px;
+}
+.hero-desc strong { color: #12233A; font-weight: 600; }
+
+.bp-divider {
+    height: 2px;
+    background: linear-gradient(to right, #1458A8 0%, #2B7FD4 40%, #E8F1FB 100%);
+    border: none;
+    margin: 2rem 0;
+    border-radius: 2px;
 }
 
-.section-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 2.2rem;
-    color: #00D7FF; /* Blueprint Cyan */
-    border-bottom: 1px dashed #00D7FF; /* Dashed technical line */
+.stat-card {
+    background: #FFFFFF;
+    border: 1px solid #D0E2F4;
+    border-top: 4px solid #1458A8;
+    border-radius: 6px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+}
+.stat-num {
+    font-weight: 700;
+    font-size: 2.3rem;
+    color: #1458A8;
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+.stat-lbl {
+    font-size: 0.76rem;
+    color: #4B6A8A;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    line-height: 1.45;
 }
 
-    /* Hide Streamlit default elements */
-    #MainMenu, footer, header { visibility: hidden; }
-    .block-container { padding-top: 2rem; padding-bottom: 2rem; max-width: 1100px; }
-
-   /* Hero name - Drafted style */
-.hero-name {
-    font-family: 'JetBrains Mono', monospace; /* Monospace feels like typed specs */
-    font-size: 3.8rem;
-    color: #FFFFFF;
-    letter-spacing: -1px;
-    border-left: 5px solid #00D7FF; /* Cyan "border" line */
-    padding-left: 15px;
+.sec-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: #2B7FD4;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
 }
-
-.section-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 2.2rem;
-    color: #00D7FF; /* Blueprint Cyan */
-    border-bottom: 1px dashed #00D7FF; /* Dashed technical line */
+.sec-title {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #12233A;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
+.sec-title span { color: #1458A8; }
 
-    /* Section headers */
-    .section-tag {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.75rem;
-        color: #2ABEBC;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        margin-bottom: 0.4rem;
-    }
-    .section-title {
-        font-family: 'DM Serif Display', serif;
-        font-size: 2.2rem;
-        color: #0D1F2D;
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-    }
-
-    /* Divider */
-    .custom-divider {
-        height: 3px;
-        background: linear-gradient(to right, #1B6CA8, #2ABEBC, transparent);
-        border: none;
-        margin: 2rem 0;
-        border-radius: 2px;
-    }
-
-    .stat-card {
-    background: transparent;
-    border: 2px solid #00D7FF;
-    border-radius: 4px;
+.proj-card {
+    background: #FFFFFF;
+    border: 1px solid #D0E2F4;
+    border-radius: 8px;
     padding: 1.4rem;
+    margin-bottom: 1.2rem;
+    border-left: 5px solid #1458A8;
 }
-
-.stat-number {
-    font-family: 'JetBrains Mono', monospace;
-    color: #FFFFFF;
-    font-weight: bold;
-}
-
-   /* Project cards as technical details */
-.project-card {
-    background: rgba(26, 95, 122, 0.3); /* Translucent navy */
-    border: 1px solid #00D7FF; /* Cyan outline */
-    border-radius: 0px; /* Sharp corners look more like technical docs */
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.project-title {
-    color: #00D7FF !important;
+.proj-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: #2B7FD4;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
 }
+.proj-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #12233A;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+.proj-desc {
+    font-size: 0.87rem;
+    color: #4B6A8A;
+    line-height: 1.75;
+    margin-bottom: 0.9rem;
+}
+.proj-result {
+    font-size: 0.82rem;
+    color: #1A6B3A;
+    font-weight: 600;
+    background: #EAF7EE;
+    border: 1px solid #B0DFC0;
+    border-radius: 4px;
+    padding: 5px 12px;
+    display: inline-block;
+    margin-top: 0.6rem;
+}
 
-    /* Tag pills */
-    .tag-pill {
-        display: inline-block;
-        background: #E8F4FD;
-        color: #1B6CA8;
-        border: 1px solid #B8D8F0;
-        border-radius: 4px;
-        padding: 2px 10px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.72rem;
-        margin: 2px;
-    }
-    .tag-pill-teal {
-        background: #E0F7F5;
-        color: #0F6E56;
-        border-color: #9FE1CB;
-    }
-    .tag-pill-gold {
-        background: #FEF9E7;
-        color: #854F0B;
-        border-color: #FAC775;
-    }
+.tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    padding: 3px 9px;
+    border-radius: 3px;
+    margin: 2px 2px 2px 0;
+    font-weight: 500;
+}
+.tag-blue  { background: #E8F1FB; color: #1458A8; border: 1px solid #B8D4F0; }
+.tag-slate { background: #EEF2F7; color: #4B6A8A; border: 1px solid #C8D8E8; }
+.tag-green { background: #EAF7EE; color: #1A6B3A; border: 1px solid #B0DFC0; }
 
-    /* Skill bars */
-    .skill-label {
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: #0D1F2D;
-        margin-bottom: 3px;
-    }
+.tl-item {
+    border-left: 2px solid #D0E2F4;
+    padding-left: 1.3rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.tl-dot {
+    width: 11px; height: 11px;
+    background: #1458A8;
+    border-radius: 50%;
+    position: absolute;
+    left: -6.5px; top: 3px;
+    border: 2px solid #F4F7FB;
+}
+.tl-dot-active { background: #2B7FD4; box-shadow: 0 0 0 3px #E8F1FB; }
+.tl-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: #2B7FD4;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+}
+.tl-role  { font-weight: 600; font-size: 1rem; color: #12233A; margin-bottom: 2px; line-height: 1.3; }
+.tl-company { font-size: 0.85rem; color: #1458A8; font-weight: 500; margin-bottom: 6px; }
+.tl-desc  { font-size: 0.85rem; color: #4B6A8A; line-height: 1.7; }
+.tl-desc strong { color: #12233A; }
 
-    /* Timeline */
-    .timeline-item {
-        border-left: 2px solid #1B6CA8;
-        padding-left: 1.2rem;
-        margin-bottom: 1.5rem;
-        position: relative;
-    }
-    .timeline-dot {
-        width: 10px;
-        height: 10px;
-        background: #2ABEBC;
-        border-radius: 50%;
-        position: absolute;
-        left: -6px;
-        top: 4px;
-    }
-    .timeline-date {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.75rem;
-        color: #2ABEBC;
-        margin-bottom: 3px;
-    }
-    .timeline-role {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #0D1F2D;
-        margin-bottom: 2px;
-    }
-    .timeline-company {
-        font-size: 0.85rem;
-        color: #E8C547;
-        font-style: italic;
-        margin-bottom: 5px;
-    }
-    .timeline-desc {
-        font-size: 0.85rem;
-        color: #555;
-        line-height: 1.65;
-    }
+.sk-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #12233A;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+.sk-label span { color: #4B6A8A; font-weight: 400; font-size: 0.78rem; }
 
-    /* Contact card */
-    .contact-card {
-        background: linear-gradient(135deg, #0D1F2D, #1A3448);
-        border-radius: 12px;
-        padding: 2rem;
-        border: 1px solid rgba(42,190,188,0.2);
-    }
-    .contact-card h3 {
-        font-family: 'DM Serif Display', serif;
-        color: white;
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-    .contact-card p { color: #8BA3B8; font-size: 0.9rem; line-height: 1.7; }
+.stProgress > div > div > div > div { background: #1458A8 !important; }
 
-    /* Nav tabs override */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background: #F0F6FC;
-        border-radius: 8px;
-        padding: 4px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        border-radius: 6px;
-        font-weight: 500;
-        font-size: 0.9rem;
-    }
-    .stTabs [aria-selected="true"] {
-        background: #1B6CA8 !important;
-        color: white !important;
-    }
+.contact-card {
+    background: #12233A;
+    border-radius: 10px;
+    padding: 2rem;
+}
+.contact-card h3 { font-weight: 700; font-size: 1.4rem; color: #FFFFFF; margin-bottom: 0.5rem; }
+.contact-card p { color: #A8C0D8; font-size: 0.9rem; line-height: 1.8; }
+.contact-card strong { color: #2B7FD4; }
+
+.cert-pill {
+    background: #FFFFFF;
+    border: 1px solid #D0E2F4;
+    border-left: 4px solid #2B7FD4;
+    border-radius: 5px;
+    padding: 8px 14px;
+    margin-bottom: 7px;
+    font-size: 0.84rem;
+    color: #12233A;
+    font-weight: 500;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+    background: #FFFFFF !important;
+    border-bottom: 2px solid #D0E2F4 !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+.stTabs [data-baseweb="tab"] {
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    color: #4B6A8A !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 0 !important;
+    border-bottom: 3px solid transparent !important;
+    margin-bottom: -2px !important;
+}
+.stTabs [aria-selected="true"] {
+    color: #1458A8 !important;
+    border-bottom: 3px solid #1458A8 !important;
+    background: transparent !important;
+    font-weight: 600 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -220,326 +260,234 @@ st.markdown("""
 # ══════════════════════════════════════════════════════════════
 # HERO
 # ══════════════════════════════════════════════════════════════
-col_hero, col_space = st.columns([3, 1])
-
-with col_hero:
+col_h, _ = st.columns([3, 1])
+with col_h:
     st.markdown("""
-    <div style="margin-bottom: 0.5rem;">
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.78rem;
-                     color:#2ABEBC; letter-spacing:0.15em;
-                     background:#E0F7F5; padding:4px 12px;
-                     border-radius:4px; border:1px solid rgba(42,190,188,0.3);">
-            // disponible para nuevas oportunidades
-        </span>
-    </div>
+    <div class="hero-badge">// Disponible para nuevas oportunidades</div>
     <div class="hero-name">J. Daniel<br><span>Mancilla</span></div>
-    <div style="font-family:'DM Serif Display',serif; font-size:1.5rem;
-                color:#E8C547; font-style:italic; margin-bottom:1rem;">
-        Data Scientist & Operations Specialist
-    </div>
-    <p style="font-size:1rem; color:#555; line-height:1.75; max-width:580px; margin-bottom:1.5rem;">
+    <div class="hero-role">Data Scientist &amp; Operations Specialist</div>
+    <p class="hero-desc">
         <strong>Ingeniero Químico con +15 años en operaciones industriales</strong> —
         manufactura, construcción MEP, agroindustria — en transición estratégica hacia
-        Data Science aplicado. Convierto datos operativos en decisiones de negocio
-        de alto impacto.
+        Data Science aplicado. Convierto datos operativos en decisiones de negocio de alto impacto.
     </p>
     """, unsafe_allow_html=True)
-
-    col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 2])
-    with col_btn1:
+    st.markdown("<br>", unsafe_allow_html=True)
+    b1, b2, b3 = st.columns([1.2, 1.2, 2])
+    with b1:
         st.link_button(
             "💼 LinkedIn", "https://linkedin.com/in/pmomancilla", use_container_width=True)
-    with col_btn2:
+    with b2:
         st.link_button(
             "💻 GitHub", "https://github.com/iqmancilla-ARI", use_container_width=True)
 
-st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
+st.markdown('<div class="bp-divider"></div>', unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════════════════════════
 # STATS
 # ══════════════════════════════════════════════════════════════
-c1, c2, c3, c4 = st.columns(4)
-
-stats = [
-    ("+15", "Años en operaciones industriales"),
-    ("+55%", "Incremento de productividad logrado"),
-    ("4", "Proyectos DS desplegados"),
-    ("3", "Sectores industriales liderados"),
-]
-
-for col, (num, label) in zip([c1, c2, c3, c4], stats):
+s1, s2, s3, s4 = st.columns(4)
+for col, (num, lbl) in zip(
+    [s1, s2, s3, s4],
+    [("+15", "Años en operaciones industriales"), ("+55%", "Incremento de productividad logrado"),
+     ("4", "Proyectos DS desplegados"), ("3", "Sectores industriales liderados")]
+):
     with col:
-        st.markdown(f"""
-        <div class="stat-card">
-            <span class="stat-number">{num}</span>
-            <span class="stat-label">{label}</span>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f'<div class="stat-card"><span class="stat-num">{num}</span><span class="stat-lbl">{lbl}</span></div>',
+                    unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════════════════════════
-# TABS NAVIGATION
+# TABS
 # ══════════════════════════════════════════════════════════════
-tab1, tab2, tab3, tab4 = st.tabs([
-    "⚙️  Sobre mí",
-    "📊  Proyectos DS",
-    "🏭  Experiencia",
-    "📬  Contacto",
-])
+tab1, tab2, tab3, tab4 = st.tabs(
+    ["⚙️  Sobre mí", "📊  Proyectos DS", "🏭  Experiencia", "📬  Contacto"])
 
 
-# ────────────────────────────────────────────────────────────
-# TAB 1 — SOBRE MÍ
-# ────────────────────────────────────────────────────────────
+# ── TAB 1 ────────────────────────────────────────────────────
 with tab1:
     st.markdown("<br>", unsafe_allow_html=True)
-    col_bio, col_skills = st.columns([1.1, 1])
+    c_bio, c_sk = st.columns([1.1, 1])
 
-    with col_bio:
-        st.markdown('<p class="section-tag">// 01. sobre mí</p>',
+    with c_bio:
+        st.markdown('<span class="sec-tag">// 01. sobre mí</span>',
                     unsafe_allow_html=True)
         st.markdown(
-            '<h2 class="section-title">El profesional<br>detrás del perfil</h2>', unsafe_allow_html=True)
-
+            '<div class="sec-title">El profesional<br><span>detrás del perfil</span></div>', unsafe_allow_html=True)
         st.markdown("""
-        <p style="color:#444; line-height:1.85; margin-bottom:1rem;">
-            Combino <strong>experiencia operativa real en piso de planta</strong> con herramientas
-            modernas de Data Science. Eso significa que no solo construyo modelos —
-            entiendo los procesos que generan los datos, las preguntas que realmente
-            importan y cómo comunicar los hallazgos a quienes toman decisiones.
+        <p style="color:#4B6A8A;line-height:1.85;margin-bottom:1rem;font-size:0.97rem;">
+        Combino <strong style="color:#12233A">experiencia operativa real en piso de planta</strong>
+        con herramientas modernas de Data Science. No solo construyo modelos —
+        entiendo los procesos que generan los datos y cómo comunicar hallazgos
+        a quienes toman decisiones.
         </p>
-        <p style="color:#444; line-height:1.85; margin-bottom:1rem;">
-            Trabajé en manufactura metalmecánica y alimentos, coordiné proyectos MEP en
-            sectores farmacéutico, hotelero e industrial, y hoy construyo dashboards,
-            pipelines de datos y aplicaciones analíticas desde mi consultora <strong>ARI</strong>.
+        <p style="color:#4B6A8A;line-height:1.85;margin-bottom:1rem;font-size:0.97rem;">
+        Trabajé en manufactura metalmecánica y alimentos, coordiné proyectos MEP
+        en sectores farmacéutico, hotelero e industrial, y hoy construyo dashboards
+        y pipelines de datos desde mi consultora <strong style="color:#12233A">ARI</strong>.
         </p>
-        <p style="color:#444; line-height:1.85;">
-            Actualmente cursando el <strong>Bootcamp de Data Science de TripleTen</strong>,
-            consolidando Python, SQL, Machine Learning y despliegue de aplicaciones sobre
-            mi base de ingeniería industrial.
-        </p>
+        <p style="color:#4B6A8A;line-height:1.85;font-size:0.97rem;">
+        Cursando el <strong style="color:#12233A">Bootcamp de Data Science de TripleTen</strong>
+        — Python, SQL, Machine Learning y despliegue de aplicaciones.
+        </p><br>
         """, unsafe_allow_html=True)
+        st.markdown("**Operaciones industriales:**")
+        st.markdown(" ".join([f'<span class="tag tag-slate">{t}</span>' for t in
+                              ["OEE", "TPM", "Lean Manufacturing", "Kaizen", "HACCP", "ISO 9001", "BIM/ISO 19650", "EVM/S-Curve"]]),
+                    unsafe_allow_html=True)
+        st.markdown("<br>**Stack técnico:**", unsafe_allow_html=True)
+        st.markdown(" ".join([f'<span class="tag tag-blue">{t}</span>' for t in
+                              ["Python", "pandas", "scipy", "matplotlib", "SQL", "PostgreSQL", "SQLite", "Streamlit", "Plotly", "GitHub"]]),
+                    unsafe_allow_html=True)
 
+    with c_sk:
         st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown("**Especialidades:**")
-        tags_ops = ["OEE", "TPM", "Lean Manufacturing", "Kaizen",
-                    "HACCP", "ISO 9001", "BIM/ISO 19650", "EVM/S-Curve"]
-        pills_html = " ".join(
-            [f'<span class="tag-pill-teal">{t}</span>' for t in tags_ops])
-        st.markdown(pills_html, unsafe_allow_html=True)
-
-    with col_skills:
-        st.markdown("<br><br>", unsafe_allow_html=True)
-        st.markdown("**Stack técnico**")
-
-        skills_code = {
-            "Python (pandas · scipy · matplotlib)": 80,
-            "SQL (PostgreSQL · SQLite)": 75,
-            "EDA & Análisis Estadístico": 85,
-            "Streamlit & Plotly": 75,
-            "Machine Learning (en formación)": 45,
-            "APIs REST & Web Scraping": 65,
-        }
-
-        skills_ops = {
-            "OEE & KPIs de Producción": 95,
-            "Lean Manufacturing & TPM": 95,
-            "Gestión de Proyectos MEP": 90,
-            "BIM / ArchiCAD": 80,
-            "EVM / S-Curve": 85,
-        }
-
-        st.markdown("*Data Science:*")
-        for skill, pct in skills_code.items():
+        st.markdown("**Data Science:**")
+        for sk, pct in [("Python (pandas · scipy · matplotlib)", 80), ("SQL (PostgreSQL · SQLite)", 75),
+                        ("EDA & Análisis Estadístico",
+                         85), ("Streamlit & Plotly", 75),
+                        ("Machine Learning (scikit-learn)", 45), ("APIs REST & Web Scraping", 65)]:
             st.markdown(
-                f'<div class="skill-label">{skill}</div>', unsafe_allow_html=True)
-            st.progress(pct / 100)
-
-        st.markdown("<br>*Operaciones Industriales:*", unsafe_allow_html=True)
-        for skill, pct in skills_ops.items():
+                f'<div class="sk-label">{sk}<span>{pct}%</span></div>', unsafe_allow_html=True)
+            st.progress(pct/100)
+        st.markdown("<br>**Operaciones Industriales:**")
+        for sk, pct in [("OEE & KPIs de Producción", 95), ("Lean Manufacturing & TPM", 95),
+                        ("Gestión de Proyectos MEP", 90), ("BIM / ArchiCAD", 80), ("EVM / S-Curve", 85)]:
             st.markdown(
-                f'<div class="skill-label">{skill}</div>', unsafe_allow_html=True)
-            st.progress(pct / 100)
-
+                f'<div class="sk-label">{sk}<span>{pct}%</span></div>', unsafe_allow_html=True)
+            st.progress(pct/100)
         st.markdown("<br>**Idiomas:**")
         st.markdown("""
-        <span class="tag-pill">🇲🇽 Español — Nativo</span>
-        <span class="tag-pill">🇺🇸 Inglés — C1 Advanced</span>
-        <span class="tag-pill-gold">Visa US vigente</span>
+        <span class="tag tag-blue">🇲🇽 Español — Nativo</span>
+        <span class="tag tag-blue">🇺🇸 Inglés — C1 Advanced</span>
+        <span class="tag tag-green">Visa US vigente</span>
+        <span class="tag tag-green">Relocalización inmediata</span>
         """, unsafe_allow_html=True)
 
 
-# ────────────────────────────────────────────────────────────
-# TAB 2 — PROYECTOS DS
-# ────────────────────────────────────────────────────────────
+# ── TAB 2 ────────────────────────────────────────────────────
 with tab2:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p class="section-tag">// 02. proyectos</p>',
+    st.markdown('<span class="sec-tag">// 02. proyectos</span>',
                 unsafe_allow_html=True)
-    st.markdown('<h2 class="section-title">Data Science en acción</h2>',
+    st.markdown('<div class="sec-title">Data Science <span>en acción</span></div>',
                 unsafe_allow_html=True)
 
-    projects = [
-        {
-            "num": "01 / DS",
-            "title": "Análisis de Planes Tarifarios — Megaline",
-            "desc": "Determiné el plan tarifario más rentable para 500 clientes de telecomunicaciones. Apliqué EDA completo y prueba de hipótesis Welch's t-test para validar diferencias estadísticamente significativas con 95% de confianza — recomendación accionable para equipo comercial.",
-            "tags": ["Python", "pandas", "scipy", "EDA", "Hipótesis", "seaborn"],
-            "resultado": "✅ Identificé el plan más rentable con 95% de confianza",
-            "link": "https://github.com/iqmancilla-ARI",
-        },
-        {
-            "num": "02 / DS",
-            "title": "Análisis de Ventas Globales de Videojuegos",
-            "desc": "Procesé 16,715 registros históricos para identificar patrones de éxito comercial por plataforma, género y región. Construí perfiles de usuario diferenciados para NA, EU y JP para orientar estrategias de lanzamiento.",
-            "tags": ["Python", "pandas", "scipy", "matplotlib", "Segmentación", "EDA"],
-            "resultado": "✅ Perfiles regionales para 3 mercados distintos",
-            "link": "https://github.com/iqmancilla-ARI",
-        },
-        {
-            "num": "03 / DS · DEPLOYED",
-            "title": "App Interactiva de Análisis de Vehículos",
-            "desc": "Aplicación web interactiva desplegada en producción para exploración de dataset de vehículos usados. Tema visual personalizado con CSS, session state y filtros dinámicos. Disponible públicamente en Render.",
-            "tags": ["Streamlit", "Plotly", "Render", "Python", "pandas", "CSS"],
-            "resultado": "🚀 App en producción — disponible públicamente",
-            "link": "https://github.com/iqmancilla-ARI",
-        },
-        {
-            "num": "04 / REAL OPS",
-            "title": "Sistema de Gestión de Licitaciones MEP — SQLite",
-            "desc": "Base de datos relacional para seguimiento de pipeline comercial de ingeniería. Implementado en ARI Consulting con Python y SQLite — caso de uso real que redujo tiempos de gestión documental en +60%.",
-            "tags": ["Python", "SQLite", "SQL", "Terminal", "Ops Real"],
-            "resultado": "✅ Reducción +60% en tiempos de gestión",
-            "link": "https://github.com/iqmancilla-ARI",
-        },
+    projs = [
+        ("01 / Data Science", "Análisis de Planes Tarifarios — Megaline",
+         "Determiné el plan tarifario más rentable para 500 clientes mediante EDA y prueba de hipótesis Welch's t-test con 95% de confianza.",
+         ["Python", "pandas", "scipy", "EDA", "Hipótesis"], "✅ Plan más rentable — 95% confianza"),
+        ("02 / Data Science", "Análisis de Ventas Globales de Videojuegos",
+         "Procesé 16,715 registros para identificar patrones por plataforma, género y región. Perfiles diferenciados para NA, EU y JP.",
+         ["Python", "pandas", "scipy", "matplotlib", "Segmentación"], "✅ Perfiles para 3 mercados"),
+        ("03 / DS · Deployed", "App Interactiva de Análisis de Vehículos",
+         "Aplicación web interactiva en producción. CSS personalizado, session state y filtros dinámicos desplegada en Render.",
+         ["Streamlit", "Plotly", "Render", "Python", "pandas"], "🚀 App pública en producción"),
+        ("04 / Ops Real", "Sistema de Gestión de Licitaciones MEP",
+         "Base de datos relacional SQLite para pipeline comercial de ARI Consulting. Gestión de convocatorias y seguimiento en tiempo real.",
+         ["Python", "SQLite", "SQL", "Terminal"], "✅ Reducción +60% tiempos de gestión"),
     ]
 
-    col_left, col_right = st.columns(2)
-
-    for i, proj in enumerate(projects):
-        target_col = col_left if i % 2 == 0 else col_right
-        with target_col:
+    cl, cr = st.columns(2)
+    for i, (num, title, desc, tags, res) in enumerate(projs):
+        with (cl if i % 2 == 0 else cr):
             tags_html = " ".join(
-                [f'<span class="tag-pill">{t}</span>' for t in proj["tags"]])
+                [f'<span class="tag tag-blue">{t}</span>' for t in tags])
             st.markdown(f"""
-            <div class="project-card">
-                <div class="project-num">{proj['num']}</div>
-                <div class="project-title">{proj['title']}</div>
-                <div class="project-desc">{proj['desc']}</div>
-                <div style="margin-bottom:0.8rem;">{tags_html}</div>
-                <div style="font-size:0.82rem; color:#0F6E56; font-weight:500; margin-bottom:0.6rem;">{proj['resultado']}</div>
+            <div class="proj-card">
+                <div class="proj-num">{num}</div>
+                <div class="proj-title">{title}</div>
+                <div class="proj-desc">{desc}</div>
+                {tags_html}
+                <div class="proj-result">{res}</div>
             </div>
             """, unsafe_allow_html=True)
             st.link_button("→ Ver en GitHub",
-                           proj["link"], use_container_width=False)
+                           "https://github.com/iqmancilla-ARI")
             st.markdown("<br>", unsafe_allow_html=True)
 
 
-# ────────────────────────────────────────────────────────────
-# TAB 3 — EXPERIENCIA
-# ────────────────────────────────────────────────────────────
+# ── TAB 3 ────────────────────────────────────────────────────
 with tab3:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p class="section-tag">// 03. experiencia</p>',
-                unsafe_allow_html=True)
-    st.markdown('<h2 class="section-title">Trayectoria profesional</h2>',
-                unsafe_allow_html=True)
+    ct, ce = st.columns([1.2, 1])
 
-    experience = [
-        {
-            "date": "01/2026 — Actualidad",
-            "role": "Consultor Técnico MEP | Operations Data Analyst",
-            "company": "ARI — Auditoría Técnica MEP (Consultoría Propia)",
-            "desc": "Auditoría técnica MEP, licitaciones de ingeniería y herramientas de análisis operativo. Implementé sistema SQLite + Python para seguimiento de pipeline de licitaciones, reduciendo tiempos de gestión en +60%.",
-        },
-        {
-            "date": "01/2020 — 12/2025",
-            "role": "Gerente de Operaciones",
-            "company": "Frimax S.A. de C.V. — Manufactura (Paneles de Poliuretano, FMCG)",
-            "desc": "+55% de productividad mediante sistema de KPIs basado en OEE, análisis de causa raíz y proyectos Lean/TPM. Gestión CAPEX con control EVM. Operación de manufactura compleja.",
-        },
-        {
-            "date": "01/2010 — 12/2019",
-            "role": "Gerente de Proyectos MEP / Coordinador de Ingeniería",
-            "company": "Proyectos Industriales y Construcción — Multisectorial",
-            "desc": "Proyectos de hasta $50M MXN aplicando BIM/ISO 19650 y EVM/S-Curve. Equipos de hasta 40 ingenieros en sectores farmacéutico, hotelero, alimentario e industrial.",
-        },
-    ]
-
-    col_exp, col_cert = st.columns([1.2, 1])
-
-    with col_exp:
-        st.markdown("**Experiencia laboral**")
-        st.markdown("<br>", unsafe_allow_html=True)
-        for exp in experience:
+    with ct:
+        st.markdown('<span class="sec-tag">// 03. experiencia</span>',
+                    unsafe_allow_html=True)
+        st.markdown(
+            '<div class="sec-title">Trayectoria <span>profesional</span></div>', unsafe_allow_html=True)
+        for date, role, company, desc, active in [
+            ("01/2026 — Actualidad", "Consultor Técnico MEP | Operations Data Analyst",
+             "ARI — Consultoría Técnica MEP",
+             "Auditoría MEP y herramientas de análisis operativo. <strong>Sistema SQLite + Python</strong> redujo tiempos de gestión en +60%.", True),
+            ("01/2020 — 12/2025", "Gerente de Operaciones",
+             "Frimax S.A. de C.V. — Manufactura FMCG",
+             "<strong>+55% productividad</strong> mediante OEE, causa raíz y Lean/TPM. Gestión CAPEX con control EVM.", False),
+            ("01/2010 — 12/2019", "Gerente de Proyectos MEP / Coordinador de Ingeniería",
+             "Proyectos Industriales y Construcción — Multisectorial",
+             "Proyectos de hasta <strong>$50M MXN</strong> con BIM/ISO 19650 y EVM. Equipos de hasta 40 ingenieros.", False),
+        ]:
+            dot = "tl-dot tl-dot-active" if active else "tl-dot"
             st.markdown(f"""
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">{exp['date']}</div>
-                <div class="timeline-role">{exp['role']}</div>
-                <div class="timeline-company">{exp['company']}</div>
-                <div class="timeline-desc">{exp['desc']}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            <div class="tl-item">
+                <div class="{dot}"></div>
+                <div class="tl-date">{date}</div>
+                <div class="tl-role">{role}</div>
+                <div class="tl-company">{company}</div>
+                <div class="tl-desc">{desc}</div>
+            </div>""", unsafe_allow_html=True)
 
-    with col_cert:
-        st.markdown("**Formación académica**")
-        st.info(
-            "🎓 **Ingeniería Química**\nUniversidad de Guadalajara — CUCEI\nTitulado")
-        st.info("📊 **Data Science Bootcamp** (en curso)\nTripleTen (Practicum) — 2024 a la fecha\nPython · SQL · ML · Streamlit · APIs")
-
-        st.markdown("<br>**Certificaciones**", unsafe_allow_html=True)
-
-        certs = [
-            "📋 Project Management Professional (PMI/PMBOK)",
-            "🏭 Lean Manufacturing & TPM",
-            "🍽️ HACCP — Inocuidad alimentaria",
-            "✅ ISO 9001:2015",
-            "🏗️ BIM / ISO 19650",
-            "🔥 NFPA 13, 14, 2001",
-        ]
-        for cert in certs:
-            st.markdown(f"""
-            <div style="background:#F8FAFE; border:1px solid #E0E8F0;
-                        border-radius:6px; padding:8px 14px; margin-bottom:6px;
-                        font-size:0.85rem; color:#333;">
-                {cert}
-            </div>
-            """, unsafe_allow_html=True)
+    with ce:
+        st.markdown('<span class="sec-tag">// formación</span>',
+                    unsafe_allow_html=True)
+        st.markdown(
+            '<div class="sec-title" style="font-size:1.6rem;">Educación &<br><span>Certificaciones</span></div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div class="proj-card" style="border-left-color:#2B7FD4;">
+            <div class="proj-num">Universidad de Guadalajara — CUCEI</div>
+            <div class="proj-title">Ingeniería Química — Titulado</div>
+        </div>
+        <div class="proj-card">
+            <div class="proj-num">TripleTen (Practicum) · 2024 — Actualidad</div>
+            <div class="proj-title">Data Science Bootcamp</div>
+            <div class="proj-desc" style="margin-bottom:0.5rem;">Python · SQL · ML · Streamlit · APIs</div>
+            <span class="tag tag-green">En curso</span>
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown("**Certificaciones:**")
+        for c in ["📋 Project Management Professional (PMI/PMBOK)", "🏭 Lean Manufacturing & TPM",
+                  "🍽️ HACCP — Inocuidad alimentaria", "✅ ISO 9001:2015", "🏗️ BIM / ISO 19650", "🔥 NFPA 13, 14, 2001"]:
+            st.markdown(
+                f'<div class="cert-pill">{c}</div>', unsafe_allow_html=True)
 
 
-# ────────────────────────────────────────────────────────────
-# TAB 4 — CONTACTO
-# ────────────────────────────────────────────────────────────
+# ── TAB 4 ────────────────────────────────────────────────────
 with tab4:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p class="section-tag">// 04. contacto</p>',
+    st.markdown('<span class="sec-tag">// 04. contacto</span>',
                 unsafe_allow_html=True)
-    st.markdown('<h2 class="section-title">¿Hablamos?</h2>',
+    st.markdown('<div class="sec-title">¿<span>Hablamos</span>?</div>',
                 unsafe_allow_html=True)
 
-    col_contact, col_form = st.columns([1, 1.2])
-
-    with col_contact:
+    ci, cf = st.columns([1, 1.2])
+    with ci:
         st.markdown("""
         <div class="contact-card">
             <h3>J. Daniel Mancilla M.</h3>
-            <p>Estoy abierto a roles en <strong style="color:#2ABEBC">analítica industrial</strong>,
-            <strong style="color:#2ABEBC">Data Science</strong> y
-            <strong style="color:#2ABEBC">ConTech</strong>.</p>
+            <p>Abierto a roles en<br>
+            <strong>analítica industrial</strong>, <strong>Data Science</strong> y <strong>ConTech</strong>.</p>
             <br>
             <p>📍 Zapopan, Jalisco — México<br>
-            🔄 Disponibilidad de relocalización nacional inmediata<br>
+            🔄 Relocalización nacional inmediata<br>
             🇺🇸 Visa US vigente<br>
             🌐 Inglés C1 Advanced</p>
         </div>
         """, unsafe_allow_html=True)
-
         st.markdown("<br>", unsafe_allow_html=True)
-
         st.link_button("✉️  iq.mancilla@gmail.com",
                        "mailto:iq.mancilla@gmail.com", use_container_width=True)
         st.link_button("💼  linkedin.com/in/pmomancilla",
@@ -547,34 +495,32 @@ with tab4:
         st.link_button("💻  github.com/iqmancilla-ARI",
                        "https://github.com/iqmancilla-ARI", use_container_width=True)
 
-    with col_form:
-        st.markdown("**Envíame un mensaje directo:**")
-        nombre = st.text_input("Tu nombre")
-        email = st.text_input("Tu email")
+    with cf:
+        st.markdown("**Envíame un mensaje:**")
+        nombre = st.text_input("Nombre")
+        email_ = st.text_input("Email")
         asunto = st.selectbox("Asunto", [
-            "Oportunidad laboral",
-            "Proyecto de consultoría",
-            "Colaboración técnica",
-            "Otro",
-        ])
-        mensaje = st.text_area("Mensaje", height=130)
-
+                              "Oportunidad laboral", "Proyecto de consultoría", "Colaboración técnica", "Otro"])
+        mensaje = st.text_area("Mensaje", height=140,
+                               placeholder="Cuéntame sobre la oportunidad...")
         if st.button("Enviar mensaje →", use_container_width=True, type="primary"):
-            if nombre and email and mensaje:
+            if nombre and email_ and mensaje:
                 st.success(
-                    f"✅ Gracias **{nombre}**. Te respondo a la brevedad a **{email}**.")
+                    f"✅ Gracias **{nombre}** — te respondo a **{email_}** a la brevedad.")
                 st.balloons()
             else:
-                st.warning("Por favor completa todos los campos.")
+                st.warning("Completa todos los campos.")
+
 
 # ── FOOTER ───────────────────────────────────────────────────
 st.markdown("<br>", unsafe_allow_html=True)
-st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
+st.markdown('<div class="bp-divider"></div>', unsafe_allow_html=True)
 st.markdown("""
-<div style="display:flex; justify-content:space-between; align-items:center;
-            font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:#8BA3B8;">
+<div style="display:flex;justify-content:space-between;
+            font-family:'IBM Plex Mono',monospace;
+            font-size:0.72rem;color:#4B6A8A;padding:0.5rem 0;">
     <span>© 2026 J. Daniel Mancilla Malvaez</span>
     <span>Zapopan, Jalisco — México</span>
-    <span>Construido con Python + Streamlit</span>
+    <span>Python · Streamlit</span>
 </div>
 """, unsafe_allow_html=True)
