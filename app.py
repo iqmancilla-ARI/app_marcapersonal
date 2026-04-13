@@ -367,8 +367,6 @@ with tab1:
         <span class="tag tag-green">Visa US vigente</span>
         <span class="tag tag-green">Relocalización inmediata</span>
         """, unsafe_allow_html=True)
-
-
 # ── TAB 2 ────────────────────────────────────────────────────
 with tab2:
     st.markdown("<br>", unsafe_allow_html=True)
@@ -377,23 +375,42 @@ with tab2:
     st.markdown('<div class="sec-title">Data Science <span>en acción</span></div>',
                 unsafe_allow_html=True)
 
+    # ── Reemplaza cada URL con el link real de tu repo en GitHub ──
+    LINK_PROYECTO_1 = "https://github.com/iqmancilla-ARI/link1"  # Megaline
+    LINK_PROYECTO_2 = "https://github.com/iqmancilla-ARI/sprint6-videogames-analysis.git"  # Videojuegos
+    # App vehículos (o URL de Render)
+    LINK_PROYECTO_3 = "https://github.com/iqmancilla-ARI/sprint_07_Proyecto.git"
+    LINK_PROYECTO_4 = "https://github.com/iqmancilla-ARI/link4"  # Licitaciones MEP
+
     projs = [
-        ("01 / Data Science", "Análisis de Planes Tarifarios — Megaline",
+        ("01 / Data Science",
+         "Análisis de Planes Tarifarios — Megaline",
          "Determiné el plan tarifario más rentable para 500 clientes mediante EDA y prueba de hipótesis Welch's t-test con 95% de confianza.",
-         ["Python", "pandas", "scipy", "EDA", "Hipótesis"], "✅ Plan más rentable — 95% confianza"),
-        ("02 / Data Science", "Análisis de Ventas Globales de Videojuegos",
+         ["Python", "pandas", "scipy", "EDA", "Hipótesis"],
+         "✅ Plan más rentable — 95% confianza",
+         LINK_PROYECTO_1),
+        ("02 / Data Science",
+         "Análisis de Ventas Globales de Videojuegos",
          "Procesé 16,715 registros para identificar patrones por plataforma, género y región. Perfiles diferenciados para NA, EU y JP.",
-         ["Python", "pandas", "scipy", "matplotlib", "Segmentación"], "✅ Perfiles para 3 mercados"),
-        ("03 / DS · Deployed", "App Interactiva de Análisis de Vehículos",
+         ["Python", "pandas", "scipy", "matplotlib", "Segmentación"],
+         "✅ Perfiles para 3 mercados",
+         LINK_PROYECTO_2),
+        ("03 / DS · Deployed",
+         "App Interactiva de Análisis de Vehículos",
          "Aplicación web interactiva en producción. CSS personalizado, session state y filtros dinámicos desplegada en Render.",
-         ["Streamlit", "Plotly", "Render", "Python", "pandas"], "🚀 App pública en producción"),
-        ("04 / Ops Real", "Sistema de Gestión de Licitaciones MEP",
+         ["Streamlit", "Plotly", "Render", "Python", "pandas"],
+         "🚀 App pública en producción",
+         LINK_PROYECTO_3),
+        ("04 / Ops Real",
+         "Sistema de Gestión de Licitaciones MEP",
          "Base de datos relacional SQLite para pipeline comercial de ARI Consulting. Gestión de convocatorias y seguimiento en tiempo real.",
-         ["Python", "SQLite", "SQL", "Terminal"], "✅ Reducción +60% tiempos de gestión"),
+         ["Python", "SQLite", "SQL", "Terminal"],
+         "✅ Reducción +60% tiempos de gestión",
+         LINK_PROYECTO_4),
     ]
 
     cl, cr = st.columns(2)
-    for i, (num, title, desc, tags, res) in enumerate(projs):
+    for i, (num, title, desc, tags, res, link) in enumerate(projs):
         with (cl if i % 2 == 0 else cr):
             tags_html = " ".join(
                 [f'<span class="tag tag-blue">{t}</span>' for t in tags])
@@ -406,11 +423,8 @@ with tab2:
                 <div class="proj-result">{res}</div>
             </div>
             """, unsafe_allow_html=True)
-            st.link_button("→ Ver en GitHub",
-                           "https://github.com/iqmancilla-ARI")
+            st.link_button("→ Ver en GitHub", link)
             st.markdown("<br>", unsafe_allow_html=True)
-
-
 # ── TAB 3 ────────────────────────────────────────────────────
 with tab3:
     st.markdown("<br>", unsafe_allow_html=True)
